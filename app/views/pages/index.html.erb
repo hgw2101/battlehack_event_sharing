@@ -1,6 +1,22 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Welcome to the ultimate ride-share app</h1>
-    <button type="button" class="btn btn-primary">Sign Up!</button>
+    <div class="signup">
+      <div class="sign-up-form">
+        <class='navbar-form navbar-left'>
+          <%= form_for @user do |f| %>
+            <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
+            <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
+            <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
+            <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', class: 'form-control' %>
+            <h3>Do you have a car?</h3>
+            <%= radio_button_tag(:has_car?, "Yes") %>
+            <%= label_tag(:has_car?, "Yes") %><br>
+            <%= radio_button_tag(:has_car?, "No") %>
+            <%= label_tag(:has_car?, "No") %><br>
+            <%= f.submit 'Join Free', class: 'btn btn-default navbar-btn' %>
+          <% end %>
+      </div>
+    </div>
   </div>
 </div>
