@@ -9,6 +9,12 @@
 </head>
 <body>
 
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="nav-left">
+      <%= link_to (fa_icon "pencil-square-o 2x") , root_path, :content => "Your Journal" %>
+    </div>
+  </nav>
+
 <%= yield %>
 
 </body>
