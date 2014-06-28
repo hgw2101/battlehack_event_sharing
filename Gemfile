@@ -42,3 +42,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rgeo'
 gem 'rgeo-ar'
 gem 'activerecord-postgis-adapter'
+
+# Fonts
+gem "font-awesome-rails"
