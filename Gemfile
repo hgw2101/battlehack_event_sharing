@@ -38,3 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Geospatial
+gem 'rgeo'
+gem 'rgeo-ar'
+gem 'activerecord-postgis-adapter'
