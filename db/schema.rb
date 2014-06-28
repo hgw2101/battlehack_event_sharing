@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20140628190303) do
 
   create_table "location_records", force: true do |t|
     t.integer  "locatable_id"
-    t.spatial  "location",     limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.string   "locatable_type"
+    t.spatial  "location",       limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
