@@ -1,7 +1,8 @@
 class CreateLocationRecords < ActiveRecord::Migration
   def change
     create_table :location_records do |t|
-      t.belongs_to :locatable
+      t.integer :locatable_id
+      t.string :locatable_type
       t.point :location, :geographic => true
       t.string :type
 
