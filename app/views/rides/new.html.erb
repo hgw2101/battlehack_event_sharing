@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Create a new ride!</h2>
+  <div class="signup">
+    <div class="sign-up-form">
+      <class='navbar-form navbar-left'>
+        <%= form_for @ride do |f| %>
+          <%= f.text_field :name, placeholder: 'Destination Name', class: 'form-control' %><br>
+          <%= label_tag(:start_time, "Start Time:") %>
+          <%= f.datetime_local_field :start_time %>
+          <%= label_tag(:end_time, "End Time:") %>
+          <%= f.datetime_local_field :end_time %><br>
+          <%= text_field_tag 'start_location', placeholder: 'Origin', class: 'form-control' %>
+          <%= text_field_tag 'end_location', placeholder: 'Destination', class: 'form-control' %><br>
+          <div id="map-canvas"><i class='fa fa-globe fa-spin fa-3x'></i></div>
+          <%= f.submit 'Create Ride', class: 'btn btn-default navbar-btn' %>
+        <% end %>
+    </div>
+  </div>
+</div>
