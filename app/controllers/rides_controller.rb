@@ -82,7 +82,7 @@ class RidesController < ApplicationController
     @ride = Ride.find(params[:id])
     params[:invitees].each do |i|
       @ride.riders << User.find(i)
-      @user_ride = UserRide.where(ride_id: @ride.id, user_id: i)
+      @user_ride = UserRide.where(ride_id: @ride.id, user_id: i).first
       @user_ride.driver_approval = true
       @user_ride.save
       puts "@@@@@@@@@@@@@@"
