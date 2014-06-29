@@ -8,7 +8,7 @@
       <% if @ride.price_per_rider == 0 %>
         <h4>No one has signed up for this ride.</h4>
       <% else %>
-        <h4>Price per person: <%= @ride.price_per_rider %></h4>
+        <h4>Price per person: $<%= @ride.price_per_rider %></h4>
       <% end %>
       <h5>Organized by <%= @ride.driver.name %></h5>
       <h5>Leaves at <%= @ride.start_time.strftime("%l:%M %p") %> on <%= @ride.start_time.strftime("%b %d, %Y") %> on and returns at <%= @ride.end_time.strftime("%l:%M %p") %> on <%= @ride.end_time.strftime("%b %d, %Y") %></h5>
