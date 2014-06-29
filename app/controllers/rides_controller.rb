@@ -17,11 +17,7 @@ class RidesController < ApplicationController
 
   def create
 
-    # puts "000000000000000000000000000000"
-    # puts params[]
-    # puts "000000000000000000000000000000"
-
-    @ride = User.new
+    @ride = Ride.new
     @ride.name = params[:ride][:name]
     @ride.start_time = params[:ride][:start_time]
     @ride.end_time = params[:ride][:end_time]
