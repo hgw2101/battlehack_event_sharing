@@ -13,7 +13,7 @@ jarrod = User.create(name: 'jarrod'.capitalize, email: 'jarrod@jarrod.com', pass
 rohan = User.create(name: 'rohan'.capitalize, email: 'rohan@rohan.com', password: 'rohan', password_confirmation: 'rohan', has_car?: false)
 
 ghopps = [javad, harry, michael, greg, jake, jaime, amelia, ryan, jay, johnathan, osagie, jarrod, rohan]
-destinations = ['MSU', 'CSUCI', 'SXSW', 'Wisconsin Dells', 'NYC', 'U of I', 'IU', 'Las Vegas', 'SF']
+destinations = ["New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "Phoenix", "San Diego", "San Antonio", "Dallas", "Detroit", "San Jose", "Indianapolis", "Jacksonville", "San Francisco", "Columbus", "Austin", "Memphis", "Baltimore", "Charlotte", "Fort Worth", "Boston", "Milwaukee", "El Paso", "Washington", "Nashville-Davidson", "Seattle", "Denver", "Las Vegas", "Portland", "Oklahoma City", "Tucson", "Albuquerque", "Atlanta", "Long Beach", "Kansas City", "Fresno", "New Orleans", "Cleveland", "Sacramento", "Mesa", "Virginia Beach", "Omaha", "Colorado Springs", "Oakland", "Miami", "Tulsa", "Minneapolis", "Honolulu", "Arlington"]
 
 ghopps.each do |hopper|
   rand(10).times do |t|
@@ -27,10 +27,12 @@ end
 
 ghopps.each do |hopper|
   if hopper.has_car? == true
-    start_date = rand(1.years).from_now
-    end_date = start_date + rand(8).days
-    ride = Ride.create(name: destinations.pop, start_time: start_date, end_time: end_date, total_cost: rand(5.0..50.0).round(2))
-    hopper.provided_rides << ride
+    rand(5).times do |t|
+      start_date = rand(1.years).from_now
+      end_date = start_date + rand(8).days
+      ride = Ride.create(name: destinations.pop, start_time: start_date, end_time: end_date, total_cost: rand(5.0..50.0).round(2))
+      hopper.provided_rides << ride
+    end
   end
 end
 
