@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Destination: <%= @ride.name %></h2>
+  <h4>Organized by <%= @ride.driver.name %></h4>
+  <h5>Leaves: <%= @ride.start_time.strftime("%l:%M %p") %> on <%= @ride.start_time.strftime("%b %d, %Y") %></h5>
+  <h5>Returns: <%= @ride.end_time.strftime("%l:%M %p") %> on <%= @ride.end_time.strftime("%b %d, %Y") %></h5>
+  <h5>Price per person: $<%= (@ride.total_cost / @ride.riders.count).round(2) %></h5>
+  <% @ride.riders.each do |rider| %>
+    <h5><%= rider.name %></h5>
+  <% end %>
+  <h5>Total number of riders: <%= @ride.riders.count %></h5>
+
+</div>
