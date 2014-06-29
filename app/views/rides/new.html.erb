@@ -11,10 +11,12 @@
         <%= label_tag(:start_location, "Origin:") %><br>
         <%= text_field_tag 'start_location', nil, placeholder: 'Enter Address (e.g. 77 W Wacker, Chicago, IL 60606)', class: 'form-control' %><br><br>
         <%= hidden_field 'location', 'start' %>
+        <%= hidden_field 'point', 'start' %>
 
         <%= label_tag(:start_location, "Destination:") %><br>
         <%= text_field_tag 'end_location', nil, placeholder: 'Enter Address (e.g. 131 Snyder Rd, Lansing, MI 48910)', class: 'form-control' %><br>
         <%= hidden_field 'location', 'end' %>
+        <%= hidden_field 'point', 'end' %>
       </div>
       <br><br>
 
@@ -22,7 +24,10 @@
         <%= label_tag(:start_time, "Start Time:") %>
         <%= f.datetime_local_field :start_time, class: 'form-control' %>
         <%= label_tag(:end_time, "End Time:") %>
-        <%= f.datetime_local_field :end_time, class: 'form-control' %>
+        <%= f.datetime_local_field :end_time, class: 'form-control' %><br>
+        <h3 id='distance-calc'>Total Distance: </h3>
+        <%= label_tag(:total_cost, "Total Cost ($):") %>
+        <%= f.text_field :total_cost, class: 'form-control' %>
       </div>
       <br><br><br>
 

@@ -1,4 +1,4 @@
-function codeAddress(addressId, result) {
+function codeAddress(addressId, point) {
   var geocoder = new google.maps.Geocoder();
   var address = document.getElementById(addressId).value;
   geocoder.geocode( { 'address': address}, function(results, status) {
@@ -8,10 +8,31 @@ function codeAddress(addressId, result) {
       // console.log('results[0].geometry.location.k')
       // console.log(results[0].geometry.location.k)
 
-      $(result).val("POINT ("+ results[0].geometry.location.A + " " + results[0].geometry.location.k+")")
+      $(point).val("POINT ("+ results[0].geometry.location.A + " " + results[0].geometry.location.k+")")
 
     } else {
       alert('Please enter a valid address');
+    }
+  });
+}
+
+function calcRoute(startAddress, endAddress) {
+  var directionsDisplay = new google.maps.DirectionsRenderer();
+  var directionsService = new google.maps.DirectionsService();
+  var start = document.getElementById(startAddress).value;
+  var end = document.getElementById(endAddress).value;
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.TravelMode.DRIVING
+  };
+
+  directionsService.route(request, function(response, status) {
+    console.log(status)
+    if (status == google.maps.DirectionsStatus.OK) {
+      $('#distance-calc').text("Total Distance: "+response.routes[0].legs[0].distance.text)
+      console.log("$"+parseFloat(response.routes[0].legs[0].distance.text) * 0.1333)
+      $('#ride_total_cost').val(Math.round(parseFloat(response.routes[0].legs[0].distance.text) * 0.21*100)/100)
     }
   });
 }
@@ -21,26 +42,25 @@ $(document).ready(function() {
   $('#start_location').on('focusout', function(e) {
     e.preventDefault();
     codeAddress('start_location', '#location_start');
-    console.log("FUUUUUCK")
   });
 
   $('#end_location').on('focusout', function(e) {
     e.preventDefault();
     codeAddress('end_location', '#location_end');
-    console.log("Wanker!!")
+    calcRoute('start_location', 'end_location');
   });
+
 });
 
 $(document).on('page:load', function() {
   $('#start_location').on('focusout', function(e) {
     e.preventDefault();
     codeAddress('start_location', '#location_start');
-    console.log("FUUUUUCK")
   });
 
   $('#end_location').on('focusout', function(e) {
     e.preventDefault();
     codeAddress('end_location', '#location_end');
-    console.log("Wanker!!")
+    calcRoute('start_location', 'end_location');
   });
 })
