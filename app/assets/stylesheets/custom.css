@@ -1,26 +1,4 @@
 /*Maps*/
-/*#map-heading {
-  float: left;
-}
-
-#map-canvas {
-  margin-top: 50px;
-  height: 500px;
-  clear: both
-}
-
-#map-canvas i {
-  margin-left: 45%;
-}
-
-#heat-map-canvas {
-  height: 500px;
-}
-
-.get-heat-map {
-  float: right;
-}*/
-
 #map-canvas {
   clear: both;
   width: 100%;
@@ -113,6 +91,7 @@ tbody tr {
 }
 tbody td {
   padding:1px 8px;
+  border-bottom: 1px solid lightgray;
 }
 
 tbody tr:hover {
