@@ -25,8 +25,8 @@
           <th class='accepted-status'>Accepted Status</th>
         </thead>
         <tbody class="rides_tbody">
-          <% if @unaccepted_riders %>
-            <% @unaccepted_riders.each do |user_ride| %>
+          <% if @unaccepted_rides %>
+            <% @unaccepted_rides.each do |user_ride| %>
               <%= render 'unaccepted_ride_row', :user_ride => user_ride %>
             <% end %>
           <% end %>
