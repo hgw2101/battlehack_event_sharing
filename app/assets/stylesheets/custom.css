@@ -156,3 +156,7 @@ tbody tr:hover {
 .notification {
   color: #3476be;
 }
+
+.paynow {
+  float: right;
+}
