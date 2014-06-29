@@ -7,7 +7,11 @@ class RidesController < ApplicationController
   end
 
   def new
-    @ride = Ride.new
+    if current_user
+      @ride = Ride.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create

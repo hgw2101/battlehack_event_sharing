@@ -101,3 +101,21 @@ tbody td {
 .price {
     width: 10%;
 }
+
+/*navbar*/
+
+.navbar {
+  font-size: 2em;
+}
+
+.nav-left a {
+  margin-left: 20px;
+}
+
+.navbar-right {
+  margin-right: 50px;
+}
+
+.navbar-right a:hover {
+  text-decoration: none;
+}
