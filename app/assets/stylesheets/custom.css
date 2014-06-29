@@ -36,19 +36,19 @@
   height: 750px;
 }
 
-.provided {
+.provided, .booked, .unaccepted {
   float:right;
   border: 1px solid lightgray;
   width: 29.5%;
   height: 250px;
 }
 
-.booked {
+/*.booked {
   float:right;
   border: 1px solid lightgray;
   width: 29.5%;
   height: 250px;
-}
+}*/
 
 .table_title {
   height: 30px;
