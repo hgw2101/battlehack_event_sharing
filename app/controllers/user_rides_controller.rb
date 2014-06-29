@@ -4,9 +4,15 @@ class UserRidesController < ApplicationController
     @user_ride.rider_approval = true
     @user_ride.save
     respond_to do |format|
-      puts '999999999999999999999999999999'
-      puts 'fuuuuuck'
-      puts '999999999999999999999999999999'
+      format.json { render json: @user_ride}
+    end
+  end
+
+  def driver_approve
+    @user_ride = UserRide.find(params[:id])
+    @user_ride.driver_approval = true
+    @user_ride.save
+    respond_to do |format|
       format.json { render json: @user_ride}
     end
   end
