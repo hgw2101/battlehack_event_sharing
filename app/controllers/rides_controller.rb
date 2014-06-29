@@ -7,13 +7,13 @@ class RidesController < ApplicationController
     @start = @ride.location_records.where(description: "Start").first.location
     @end = @ride.location_records.where(description: "End").first.location
     @unaccepted_riders = []
-    @unaccepted_rides = []
-    UserRide.where(ride_id: @ride.id, driver_approval: false).each do |user_ride|
-      @unaccepted_riders << User.find(user_ride.user_id)
+    @accepted_riders = []
+    UserRide.where(ride_id: @ride.id, rider_approval: false).each do |user_ride|
+      @accepted_riders << User.find(user_ride.user_id)
     end
 
-    UserRide.where(ride_id: @ride.id, rider_approval: false).each do |user_ride|
-      @unaccepted_rides << User.find(user_ride.user_id)
+    UserRide.where(ride_id: @ride.id, driver_approval: false).each do |user_ride|
+      @unaccepted_riders << User.find(user_ride.user_id)
     end
   end
 
