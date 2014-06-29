@@ -7,10 +7,20 @@ class RidesController < ApplicationController
   end
 
   def new
-    @ride = Ride.new
+    if current_user
+      @ride = Ride.new
+      @friends = current_user.friends
+    else
+      redirect_to root_path
+    end
   end
 
   def create
+
+    # puts "000000000000000000000000000000"
+    # puts params[]
+    # puts "000000000000000000000000000000"
+
     @ride = User.new
     @ride.name = params[:ride][:name]
     @ride.start_time = params[:ride][:start_time]
