@@ -23,8 +23,8 @@
         <th class='accepted-status'>Accepted Status</th>
       </thead>
       <tbody class="rides_tbody">
-        <% @unaccepted_rides.each do |ride| %>
-          <%= render 'unaccepted_ride_row', :ride => ride %>
+        <% @unaccepted_rides.each do |user_ride| %>
+          <%= render 'unaccepted_ride_row', :user_ride => user_ride %>
         <% end %>
       </tbody>
     </table>

@@ -37,6 +37,11 @@ function calcRoute(startAddress, endAddress) {
   });
 }
 
+function riderApprove() {
+  $('body').on('ajax:success', '.rider-approve', function(e, data, status, xhr) {
+    $(this).replaceWith('<p>Accepted</p>');
+  });
+}
 
 $(document).ready(function() {
   $('#start_location').on('focusout', function(e) {
@@ -55,7 +60,10 @@ $(document).ready(function() {
 
   });
 
+  riderApprove();
+
 });
+
 
 $(document).on('page:load', function() {
   $('#start_location').on('focusout', function(e) {
@@ -68,4 +76,11 @@ $(document).on('page:load', function() {
     codeAddress('end_location', '#location_end');
     calcRoute('start_location', 'end_location');
   });
+
+  $('#invite-riders').on('click', function(e) {
+    e.preventDefault();
+
+  });
+
+  riderApprove();
 })
