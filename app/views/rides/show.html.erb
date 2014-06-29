@@ -31,7 +31,7 @@
         <% if @ride.riders.include?(current_user) %>
           <h3 class='notification'>You've requested this ride, please wait for driver's approval</span>
         <% else %>
-          <%= form_tag "user_rides/#{@ride.id}", method: 'post', class: 'driver-approve' do %>
+          <%= form_tag "/users/user_rides/#{@user_ride.id}/rider_approve", method: 'post', class: 'driver-approve' do %>
             <%= submit_tag "Request this ride", class: 'driver-approve-submit btn btn-success' %>
           <% end %>
         <% end %>
@@ -70,7 +70,7 @@
           <th class='name'>Accept</th>
         </thead>
         <tbody class="riders_tbody">
-          <% @unaccepted_riders.each do |rider| %>
+          <% @requesting_riders.each do |rider| %>
             <%= render 'accept_rider_row', :rider => rider %>
           <% end %>
         </tbody>
