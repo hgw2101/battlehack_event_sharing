@@ -11,5 +11,5 @@ style="cursor: pointer;">
     <p><%= ride.end_time.strftime("%b %d, %Y") %></p>
     <p><%= ride.end_time.strftime("%l:%M %p") %></p>
   </td>
-  <td class='price'><p>$<%= (ride.total_cost / ride.riders.count).round(2) %></p></td>
+  <td class='price'><p>$<%= ride.price_per_rider %></p></td>
 </tr>

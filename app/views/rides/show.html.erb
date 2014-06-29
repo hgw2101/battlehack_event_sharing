@@ -5,6 +5,18 @@
   <div id="ride_info">
     <div id="ride_details">
       <h2>Destination: <%= @ride.name %></h2>
+      <% if current_user == @ride.driver %>
+        <%= button_to 'Invite Riders', @ride, method: 'delete', class: 'btn btn-primary navbar-btn btn-lg right-align' %>
+        <%= button_to 'Delete Trip', @ride, method: 'delete', class: 'btn btn-danger navbar-btn btn-lg right-align' %>
+      <% else %>
+        <% if @ride.riders.include?(current_user) %>
+          <h3 class='notification'>You've requested this ride, please wait for driver's approval</span>
+        <% else %>
+          <%= form_tag "user_rides/#{@ride.id}", method: 'post', class: 'driver-approve' do %>
+            <%= submit_tag "Request this ride", class: 'driver-approve-submit btn btn-success' %>
+          <% end %>
+        <% end %>
+      <% end %>
       <% if @ride.price_per_rider == 0 %>
         <h4>No one has signed up for this ride.</h4>
       <% else %>
@@ -18,7 +30,7 @@
     </div>
   </div>
   <div class="driver_accepted">
-    <div class="table_title"><h4>Accepted Riders</h4></div>
+    <div class="table_title"><h4>Invited Riders</h4></div>
     <table class="table">
       <thead>
         <th class='name'>Rider Name</th>
@@ -30,18 +42,20 @@
       </tbody>
     </table>
   </div>
-  <div class="rider_accepted">
-    <div class="table_title"><h4>Accept Riders</h4></div>
-    <table class="table">
-      <thead>
-        <th class='name'>Rider Name</th>
-        <th class='name'>Accept</th>
-      </thead>
-      <tbody class="riders_tbody">
-        <% @unaccepted_riders.each do |rider| %>
-          <%= render 'accept_rider_row', :rider => rider %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <% if current_user == @ride.driver %>
+    <div class="rider_accepted">
+      <div class="table_title"><h4>People requested this ride</h4></div>
+      <table class="table">
+        <thead>
+          <th class='name'>Rider Name</th>
+          <th class='name'>Accept</th>
+        </thead>
+        <tbody class="riders_tbody">
+          <% @unaccepted_riders.each do |rider| %>
+            <%= render 'accept_rider_row', :rider => rider %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>
