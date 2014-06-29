@@ -21,7 +21,7 @@
   float: right;
 }*/
 
-#map {
+#map-canvas {
   clear: both;
   width: 100%;
   height: 500px;
