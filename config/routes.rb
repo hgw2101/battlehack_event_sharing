@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   post '/rides/user_rides/:ride_id', to: 'user_rides#create', as: 'user_ride_create'
   get '/rides/:id/invite_riders', to: 'rides#invite_riders', as: 'invite_riders'
   post '/rides/user_rides/:id/payment', to: 'user_rides#payment', as: 'payment'
+  post '/rides/:id/create_invite', to: 'rides#create_invite', as: 'create_invite'
 
 end

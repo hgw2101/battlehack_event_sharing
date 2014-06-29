@@ -69,7 +69,29 @@ class RidesController < ApplicationController
   end
 
   def invite_riders
+    @user = current_user
+    @ride = Ride.find(params[:id])
+    @invitables = []
+    @user.friends.each do |f|
+      @invitables << f unless @ride.riders.include?(f)
+    end
+  end
 
+  def create_invite
+    @user = current_user
+    @ride = Ride.find(params[:id])
+    params[:invitees].each do |i|
+      @ride.riders << User.find(i)
+      @user_ride = UserRide.where(ride_id: @ride.id, user_id: i)
+      @user_ride.driver_approval = true
+      @user_ride.save
+      puts "@@@@@@@@@@@@@@"
+      puts "this is @user_ride.id"
+      puts @user_ride.id
+      puts @user_ride.driver_approval
+      puts "@@@@@@@@@@@@@@"
+    end
+    redirect_to ride_path(@ride.id)
   end
 
   def request_ride

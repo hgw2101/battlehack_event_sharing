@@ -36,14 +36,12 @@ function calcPath() {
 // google.maps.event.addDomListener(window, 'load', initializeMap);
 
 $(document).ready(function() {
-  console.log("FUUUCK")
   initializeMap();
   calcPath();
 });
 
 
 $(document).on('page:load', function() {
-  console.log("FUUUCK")
   initializeMap();
   calcPath();
 });
