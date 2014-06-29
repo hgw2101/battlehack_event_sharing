@@ -150,3 +150,9 @@ tbody tr:hover {
   float: right;
   margin-left: 5px;
 }
+
+/*ride show*/
+
+.notification {
+  color: #3476be;
+}

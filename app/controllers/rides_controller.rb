@@ -8,11 +8,11 @@ class RidesController < ApplicationController
     @end = @ride.location_records.where(description: "End").first.location
     @unaccepted_riders = []
     @accepted_riders = []
-    UserRide.where(ride_id: @ride.id).each do |user_ride|
+    UserRide.where(ride_id: @ride.id, driver_approval: true).each do |user_ride|
       @accepted_riders << User.find(user_ride.user_id)
     end
 
-    UserRide.where(ride_id: @ride.id, driver_approval: false).each do |user_ride|
+    UserRide.where(ride_id: @ride.id, rider_approval: true, driver_approval: false).each do |user_ride|
       @unaccepted_riders << User.find(user_ride.user_id)
     end
   end
@@ -65,6 +65,10 @@ class RidesController < ApplicationController
   end
 
   def invite_riders
+
+  end
+
+  def request_ride
 
   end
 
