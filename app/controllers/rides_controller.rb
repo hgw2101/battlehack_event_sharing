@@ -4,6 +4,15 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.find(params[:id])
+    @unaccepted_riders = []
+    @unaccepted_rides = []
+    UserRide.where(ride_id: @ride.id, driver_approval: false).each do |user_ride|
+      @unaccepted_riders << User.find(user_ride.user_id)
+    end
+
+    UserRide.where(ride_id: @ride.id, rider_approval: false).each do |user_ride|
+      @unaccepted_rides << User.find(user_ride.user_id)
+    end
   end
 
   def new
