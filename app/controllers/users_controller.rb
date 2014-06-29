@@ -3,8 +3,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @available_rides = Ride.where(["start_time > ?", Time.now])
     @user = current_user
+    @available_rides = Ride.where(["start_time > ?", Time.now])
+    @unaccepted_rides = UserRide.where(user_id: @user.id, accepted: false)
   end
 
   def new
