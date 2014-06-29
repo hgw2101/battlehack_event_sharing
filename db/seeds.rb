@@ -26,11 +26,12 @@ ghopps.each do |hopper|
 end
 
 ghopps.each do |hopper|
+  dests = destinations.dup
   if hopper.has_car? == true
-    rand(5).times do |t|
+    10.times do |t|
       start_date = rand(1.years).from_now
       end_date = start_date + rand(8).days
-      ride = Ride.create(name: destinations.pop, start_time: start_date, end_time: end_date, total_cost: rand(5.0..50.0).round(2))
+      ride = Ride.create(name: dests.pop, start_time: start_date, end_time: end_date, total_cost: rand(5.0..50.0).round(2))
       hopper.provided_rides << ride
     end
   end
@@ -39,7 +40,9 @@ end
 rides = Ride.all
 
 rides.each do |ride|
+  ride.riders << ride.driver
   hoppers = ghopps.dup
+  hoppers.delete(ride.driver)
   rand(10).times do |t|
     hopper = hoppers.sample
     ride.riders << hopper
