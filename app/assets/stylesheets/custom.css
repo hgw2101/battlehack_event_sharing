@@ -33,21 +33,21 @@
   width: 70%;
   margin: 0;
   padding: 0;
-  height: 700px;
+  height: 750px;
 }
 
 .provided {
   float:right;
   border: 1px solid lightgray;
   width: 29.5%;
-  height: 350px;
+  height: 250px;
 }
 
 .booked {
   float:right;
   border: 1px solid lightgray;
   width: 29.5%;
-  height: 350px;
+  height: 250px;
 }
 
 .table_title {
@@ -103,23 +103,27 @@ tbody tr:hover {
 }
 
 .available_tbody {
-  height: 620px;
+  height: 680px;
 }
 
 .rides_tbody {
-  height: 310px;
+  height: 210px;
 }
 
 .name {
-    width: 25%;
+  width: 25%;
 }
 
 .time {
-    width: 20%;
+  width: 20%;
 }
 
 .price {
-    width: 10%;
+  width: 10%;
+}
+
+.time p, .name p, .price p {
+  margin: 0;
 }
 
 /*navbar*/
