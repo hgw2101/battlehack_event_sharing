@@ -40,6 +40,9 @@ class RidesController < ApplicationController
       @user_ride.rider_approval = true
       @user_ride.paid = true
       @user_ride.save
+      puts "-----------------------"
+      puts params[:start_location]
+      puts "-----------------------"
       @location_record = LocationRecord.create(
         location: params[:start_location],
         description: 'Start',

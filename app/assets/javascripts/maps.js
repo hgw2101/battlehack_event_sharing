@@ -9,8 +9,11 @@ function initializeMap() {
     zoom:7,
     center: chicago
   }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  directionsShow.setMap(map);
+  if (document.getElementById('map-canvas')) {
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    directionsShow.setMap(map);
+  }
+
 }
 
 function calcPath() {
@@ -33,12 +36,14 @@ function calcPath() {
 // google.maps.event.addDomListener(window, 'load', initializeMap);
 
 $(document).ready(function() {
+  console.log("FUUUCK")
   initializeMap();
   calcPath();
 });
 
 
 $(document).on('page:load', function() {
+  console.log("FUUUCK")
   initializeMap();
   calcPath();
 });
