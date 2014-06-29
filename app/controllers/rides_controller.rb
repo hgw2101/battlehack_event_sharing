@@ -4,6 +4,8 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.find(params[:id])
+    @start = @ride.location_records.where(description: "Start").first.location
+    @end = @ride.location_records.where(description: "End").first.location
     @unaccepted_riders = []
     @unaccepted_rides = []
     UserRide.where(ride_id: @ride.id, driver_approval: false).each do |user_ride|
@@ -40,16 +42,13 @@ class RidesController < ApplicationController
       @user_ride.rider_approval = true
       @user_ride.paid = true
       @user_ride.save
-      puts "-----------------------"
-      puts params[:start_location]
-      puts "-----------------------"
       @location_record = LocationRecord.create(
-        location: params[:start_location],
+        location: params[:location][:start],
         description: 'Start',
         locatable: @ride
          )
       @location_record = LocationRecord.create(
-        location: params[:end_location],
+        location: params[:location][:end],
         description: 'End',
         locatable: @ride
          )

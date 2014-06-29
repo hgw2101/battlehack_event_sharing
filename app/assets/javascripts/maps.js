@@ -19,8 +19,8 @@ function initializeMap() {
 function calcPath() {
   // var start = document.getElementById('start').value;
   // var end = document.getElementById('end').value;
-  var start = '41.8822784,-87.6294101'
-  var end = '42.1168454,-85.6345205'
+  var start = $('#start_coords').data('info');
+  var end = $('#end_coords').data('info');
   var request = {
       origin:start,
       destination:end,

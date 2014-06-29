@@ -3,12 +3,14 @@ function codeAddress(addressId, point) {
   var address = document.getElementById(addressId).value;
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      // console.log('results[0].geometry.location.A')
-      // console.log(results[0].geometry.location.A)
-      // console.log('results[0].geometry.location.k')
-      // console.log(results[0].geometry.location.k)
+      console.log('results[0].geometry.location.A')
+      console.log(results[0].geometry.location.A)
+      console.log('results[0].geometry.location.k')
+      console.log(results[0].geometry.location.k)
 
       $(point).val("POINT ("+ results[0].geometry.location.A + " " + results[0].geometry.location.k+")")
+      console.log("point")
+      console.log($(point))
 
     } else {
       alert('Please enter a valid address');

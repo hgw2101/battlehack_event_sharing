@@ -1,6 +1,7 @@
 <div class="container">
 
-
+  <%= content_tag :div, "", id: "start_coords", data: {info: "#{@start.lat},#{@start.lon}"} %>
+  <%= content_tag :div, "", id: "end_coords", data: {info: "#{@end.lat},#{@end.lon}"} %>
   <div id="ride_info">
     <div id="ride_details">
       <h2>Destination: <%= @ride.name %></h2>
