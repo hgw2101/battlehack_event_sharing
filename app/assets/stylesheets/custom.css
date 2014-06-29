@@ -120,7 +120,11 @@ tbody tr:hover {
   height: 680px;
 }
 
-.rides_tbody, .riders_tbody {
+.rides_tbody {
+  height: 210px;
+}
+
+.riders_tbody {
   height: 290px;
 }
 

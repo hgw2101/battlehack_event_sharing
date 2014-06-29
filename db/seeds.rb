@@ -33,6 +33,12 @@ ghopps.each do |hopper|
       end_date = start_date + rand(8).days
       ride = Ride.create(name: dests.pop, start_time: start_date, end_time: end_date, total_cost: rand(5.0..50.0).round(2))
       hopper.provided_rides << ride
+      ride.riders << hopper
+
+      user_ride = UserRide.where(user_id: hopper.id, ride_id: ride.id).first
+      user_ride.driver_approval = true
+      user_ride.rider_approval = true
+      user_ride.save
     end
   end
 end
@@ -40,7 +46,7 @@ end
 rides = Ride.all
 
 rides.each do |ride|
-  ride.riders << ride.driver
+  # ride.riders << ride.driver
   hoppers = ghopps.dup
   hoppers.delete(ride.driver)
   rand(10).times do |t|
