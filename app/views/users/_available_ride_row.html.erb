@@ -1,0 +1,15 @@
+<tr onmouseover="this.style.cursor='pointer';"
+onclick="location.href='<%= ride_path(ride) %>';"
+style="cursor: pointer;">
+  <td class='name'><p><%= ride.name %></p></td>
+  <td class='name'><p><%= ride.driver.name %></p></td>
+  <td class='time'>
+    <p><%= ride.start_time.strftime("%b %d, %Y") %></p>
+    <p><%= ride.start_time.strftime("%l:%M %p") %></p>
+  </td>
+  <td class='time'>
+    <p><%= ride.end_time.strftime("%b %d, %Y") %></p>
+    <p><%= ride.end_time.strftime("%l:%M %p") %></p>
+  </td>
+  <td class='price'><p>$<%= (ride.total_cost / ride.riders.count).round(2) %></p></td>
+</tr>

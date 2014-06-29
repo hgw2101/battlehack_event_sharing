@@ -1,3 +1,42 @@
 <div class="container">
-  <h1>You've signed in <%= @user.name %>!!!</h1>
+  <div class="available">
+    <table class="table">
+      <thead>
+        <th class='name'>Name</th>
+        <th class='name'>Driver</th>
+        <th class='time'>Start Time</th>
+        <th class='time'>End Time</th>
+        <th class='price'>Cost</th>
+      </thead>
+      <tbody class="available_tbody">
+        <% @available_rides.each do |ride| %>
+          <%= render 'available_ride_row', :ride => ride %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="provided">
+    <table class="table">
+      <thead>
+        <th>Provided Rides</th>
+      </thead>
+      <tbody class="rides_tbody">
+        <% @user.provided_rides.each do |ride| %>
+          <%= render 'user_ride_row', :ride => ride %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="booked">
+    <table class="table">
+      <thead>
+        <th>Booked Rides</th>
+      </thead>
+      <tbody class="rides_tbody">
+        <% @user.booked_rides.each do |ride| %>
+          <%= render 'user_ride_row', :ride => ride %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

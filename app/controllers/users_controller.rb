@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @available_rides = Ride.where(["start_time > ?", Time.now])
     @user = current_user
   end
 
