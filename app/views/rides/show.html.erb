@@ -1,12 +1,42 @@
 <div class="container">
-  <h2>Destination: <%= @ride.name %></h2>
-  <h4>Organized by <%= @ride.driver.name %></h4>
-  <h5>Leaves: <%= @ride.start_time.strftime("%l:%M %p") %> on <%= @ride.start_time.strftime("%b %d, %Y") %></h5>
-  <h5>Returns: <%= @ride.end_time.strftime("%l:%M %p") %> on <%= @ride.end_time.strftime("%b %d, %Y") %></h5>
-  <h5>Price per person: $<%= (@ride.total_cost / @ride.riders.count).round(2) %></h5>
-  <% @ride.riders.each do |rider| %>
-    <h5><%= rider.name %></h5>
-  <% end %>
-  <h5>Total number of riders: <%= @ride.riders.count %></h5>
+  <div id="ride_info">
+    <div id="ride_details">
+      <h2>Destination: <%= @ride.name %></h2>
+      <% if @ride.price_per_rider == 0 %>
+        <h4>No one has signed up for this ride.</h4>
+      <% else %>
+        <h4>Price per person: <%= @ride.price_per_rider %></h4>
+      <% end %>
+      <h5>Organized by <%= @ride.driver.name %></h5>
+      <h5>Leaves at <%= @ride.start_time.strftime("%l:%M %p") %> on <%= @ride.start_time.strftime("%b %d, %Y") %> on and returns at <%= @ride.end_time.strftime("%l:%M %p") %> on <%= @ride.end_time.strftime("%b %d, %Y") %></h5>
+    </div>
+
+    <div id="map">
+    </div>
+  </div>
+  <div class="driver_accepted">
+    <table class="table">
+      <thead>
+        <th class='name'>Rider Name</th>
+      </thead>
+      <tbody class="riders_tbody">
+        <% @unaccepted_rides.each do |rider| %>
+          <%= render 'rider_row', :rider => rider %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="rider_accepted">
+    <table class="table">
+      <thead>
+        <th class='name'>Rider Name</th>
+      </thead>
+      <tbody class="riders_tbody">
+        <% @unaccepted_riders.each do |rider| %>
+          <%= render 'rider_row', :rider => rider %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 </div>
