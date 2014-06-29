@@ -26,7 +26,10 @@ class RidesController < ApplicationController
 
     if @ride.save
       @ride.riders << current_user
-
+      @user_ride = UserRide.find_by_ride_id(@ride.id)
+      @user_ride.accepted = true
+      @user_ride.paid = true
+      @user_ride.save
       @location_record = LocationRecord.create(
         location: params[:start_location],
         description: 'Start',
