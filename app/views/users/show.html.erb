@@ -16,10 +16,24 @@
       </tbody>
     </table>
   </div>
+  <div class="unaccepted">
+    <table class="table">
+      <thead>
+        <th class='name'>Destination</th>
+        <th class='time'>Start Date</th>
+      </thead>
+      <tbody class="rides_tbody">
+        <% @unaccepted_rides.each do |ride| %>
+          <%= render 'user_ride_row', :ride => ride %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
   <div class="provided">
     <table class="table">
       <thead>
-        <th>Provided Rides</th>
+        <th class='name'>Destination</th>
+        <th class='time'>Start Date</th>
       </thead>
       <tbody class="rides_tbody">
         <% @user.provided_rides.each do |ride| %>
@@ -31,7 +45,8 @@
   <div class="booked">
     <table class="table">
       <thead>
-        <th>Booked Rides</th>
+        <th class='name'>Destination</th>
+        <th class='time'>Start Date</th>
       </thead>
       <tbody class="rides_tbody">
         <% @user.booked_rides.each do |ride| %>
