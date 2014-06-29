@@ -1,0 +1,22 @@
+/*Maps*/
+#map-heading {
+  float: left;
+}
+
+#map-canvas {
+  margin-top: 50px;
+  height: 500px;
+  clear: both
+}
+
+#map-canvas i {
+  margin-left: 45%;
+}
+
+#heat-map-canvas {
+  height: 500px;
+}
+
+.get-heat-map {
+  float: right;
+}
