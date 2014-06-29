@@ -1,27 +1,46 @@
-function initializeMap() {
-  // var coords = $('#stop_coords').data('info')
-  // var myLatlng = new google.maps.LatLng(coords[0],coords[1]);
-  var myLatlng = new google.maps.LatLng(41.8848025,-87.6355899)
+function codeAddress(addressId, result) {
+  var geocoder = new google.maps.Geocoder();
+  var address = document.getElementById(addressId).value;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      // console.log('results[0].geometry.location.A')
+      // console.log(results[0].geometry.location.A)
+      // console.log('results[0].geometry.location.k')
+      // console.log(results[0].geometry.location.k)
 
-  var mapOptions = {
-    zoom: 16,
-    center: myLatlng
-  }
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      $(result).val("POINT ("+ results[0].geometry.location.A + " " + results[0].geometry.location.k+")")
 
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Hello World!'
+    } else {
+      alert('Please enter a valid address');
+    }
   });
-
 }
 
 
 $(document).ready(function() {
-  initializeMap();
-})
+  $('#start_location').on('focusout', function(e) {
+    e.preventDefault();
+    codeAddress('start_location', '#location_start');
+    console.log("FUUUUUCK")
+  });
+
+  $('#end_location').on('focusout', function(e) {
+    e.preventDefault();
+    codeAddress('end_location', '#location_end');
+    console.log("Wanker!!")
+  });
+});
 
 $(document).on('page:load', function() {
-  initializeMap();
+  $('#start_location').on('focusout', function(e) {
+    e.preventDefault();
+    codeAddress('start_location', '#location_start');
+    console.log("FUUUUUCK")
+  });
+
+  $('#end_location').on('focusout', function(e) {
+    e.preventDefault();
+    codeAddress('end_location', '#location_end');
+    console.log("Wanker!!")
+  });
 })

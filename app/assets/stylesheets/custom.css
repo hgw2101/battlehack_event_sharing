@@ -20,3 +20,9 @@
 .get-heat-map {
   float: right;
 }
+
+/*form*/
+
+#start_location, #end_location {
+  width: 640px;
+}
