@@ -83,4 +83,4 @@ $(document).on('page:load', function() {
   });
 
   riderApprove();
-})
+});
