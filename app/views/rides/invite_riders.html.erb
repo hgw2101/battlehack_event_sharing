@@ -1,5 +1,21 @@
 <div class="container">
 
-  <h1>Invite Riders!!</h1>
+  <h1>Invite Riders</h1>
+
+  <%= form_tag "create_invite", method: 'post' do %>
+
+    <table class="table">
+      <% @invitables.each do |i| %>
+        <tr>
+          <td><%= check_box_tag 'invitees[]', i.id %></td>
+          <td><%= label_tag i.name, i.name %></td>
+          <td><%= i.email %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= submit_tag "Send Invite!", class: 'btn btn-success' %>
+
+  <% end %>
 
 </div>
