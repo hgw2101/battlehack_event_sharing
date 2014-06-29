@@ -143,3 +143,10 @@ tbody tr:hover {
 .navbar-right a:hover {
   text-decoration: none;
 }
+
+/*generaly formatting*/
+
+.right-align {
+  float: right;
+  margin-left: 5px;
+}

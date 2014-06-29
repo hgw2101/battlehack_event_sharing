@@ -1,5 +1,17 @@
-<tr onmouseover="this.style.cursor='pointer';"
-onclick="location.href='<%= user_path(rider) %>';"
-style="cursor: pointer;">
-  <td class='name'><p><%= rider.name %></p></th>
-</tr>
+<% if rider.user_rides.where(ride_id: @ride.id).first.rider_approval %>
+
+  <tr onmouseover="this.style.cursor='pointer';"
+  onclick="location.href='<%= user_path(rider) %>';"
+  style="cursor: pointer;" class='success'>
+
+    <td class='name'><p><%= rider.name %></p></th>
+  </tr>
+<% else %>
+  <tr onmouseover="this.style.cursor='pointer';"
+  onclick="location.href='<%= user_path(rider) %>';"
+  style="cursor: pointer;" class='danger'>
+
+    <td class='name'><p><%= rider.name %></p></th>
+  </tr>
+
+<% end %>

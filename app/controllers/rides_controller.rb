@@ -8,7 +8,7 @@ class RidesController < ApplicationController
     @end = @ride.location_records.where(description: "End").first.location
     @unaccepted_riders = []
     @accepted_riders = []
-    UserRide.where(ride_id: @ride.id, rider_approval: false).each do |user_ride|
+    UserRide.where(ride_id: @ride.id).each do |user_ride|
       @accepted_riders << User.find(user_ride.user_id)
     end
 
@@ -56,6 +56,16 @@ class RidesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @ride = Ride.find(params[:id])
+    @ride.destroy
+    redirect_to user_path(current_user)
+  end
+
+  def invite_riders
+
   end
 
 end

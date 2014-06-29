@@ -16,22 +16,24 @@
       </tbody>
     </table>
   </div>
-  <div class="unaccepted">
-    <div class="table_title"><h4>Approve Riders</h4></div>
-    <table class="table">
-      <thead>
-        <th class='name'>Destination</th>
-        <th class='accepted-status'>Accepted Status</th>
-      </thead>
-      <tbody class="rides_tbody">
-        <% @unaccepted_rides.each do |user_ride| %>
-          <%= render 'unaccepted_ride_row', :user_ride => user_ride %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <% if current_user == User.find(params[:id]) %>
+    <div class="unaccepted">
+      <div class="table_title"><h4>Confirm Trips</h4></div>
+      <table class="table">
+        <thead>
+          <th class='name'>Destination</th>
+          <th class='accepted-status'>Accepted Status</th>
+        </thead>
+        <tbody class="rides_tbody">
+          <% @unaccepted_rides.each do |user_ride| %>
+            <%= render 'unaccepted_ride_row', :user_ride => user_ride %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
   <div class="provided">
-    <div class="table_title"><h4>Planned Trips</h4></div>
+    <div class="table_title"><h4>Trips I'll be driving</h4></div>
     <table class="table">
       <thead>
         <th class='name'>Destination</th>
@@ -45,7 +47,7 @@
     </table>
   </div>
   <div class="booked">
-    <div class="table_title"><h4>Attending Trips</h4></div>
+    <div class="table_title"><h4>Trips I'll be attending</h4></div>
     <table class="table">
       <thead>
         <th class='name'>Destination</th>
