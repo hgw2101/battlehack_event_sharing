@@ -32,9 +32,13 @@
       <br><br><br>
 
       <div class="form-group hidden">
-
+        <% @friends.each do |fr| %>
+          <%= check_box_tag fr %>
+          <%= label_tag(fr.name, fr.name) %>
+        <% end %>
 
       </div>
+
 
       <button type="button" id="invite-riders" class="btn btn-primary">Invite Riders</button><br>
 
