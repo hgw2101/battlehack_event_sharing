@@ -11,10 +11,11 @@
       <h5>Leaves at <%= @ride.start_time.strftime("%l:%M %p") %> on <%= @ride.start_time.strftime("%b %d, %Y") %> on and returns at <%= @ride.end_time.strftime("%l:%M %p") %> on <%= @ride.end_time.strftime("%b %d, %Y") %></h5>
     </div>
 
-    <div id="map">
+    <div id="map-canvas">
     </div>
   </div>
   <div class="driver_accepted">
+    <div class="table_title"><h4>Invited Riders</h4></div>
     <table class="table">
       <thead>
         <th class='name'>Rider Name</th>
@@ -27,6 +28,7 @@
     </table>
   </div>
   <div class="rider_accepted">
+    <div class="table_title"><h4>Accepted Riders</h4></div>
     <table class="table">
       <thead>
         <th class='name'>Rider Name</th>
