@@ -8,7 +8,7 @@
       <% if @ride.price_per_rider == 0 %>
         <h4>No one has signed up for this ride.</h4>
       <% else %>
-        <h4>Price per person: <%= @ride.price_per_rider %></h4>
+        <h4>Price per person: $<%= @ride.price_per_rider %></h4>
       <% end %>
       <h5>Organized by <%= @ride.driver.name %></h5>
       <h5>Leaves at <%= @ride.start_time.strftime("%l:%M %p") %> on <%= @ride.start_time.strftime("%b %d, %Y") %> on and returns at <%= @ride.end_time.strftime("%l:%M %p") %> on <%= @ride.end_time.strftime("%b %d, %Y") %></h5>
@@ -18,30 +18,30 @@
     </div>
   </div>
   <div class="driver_accepted">
-    <div class="table_title"><h4>Invited Riders</h4></div>
-    <table class="table">
-      <thead>
-        <th class='name'>Rider Name</th>
-      </thead>
-      <tbody class="riders_tbody">
-        <% @unaccepted_rides.each do |rider| %>
-          <%= render 'rider_row', :rider => rider %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div class="rider_accepted">
     <div class="table_title"><h4>Accepted Riders</h4></div>
     <table class="table">
       <thead>
         <th class='name'>Rider Name</th>
       </thead>
       <tbody class="riders_tbody">
-        <% @unaccepted_riders.each do |rider| %>
+        <% @accepted_riders.each do |rider| %>
           <%= render 'rider_row', :rider => rider %>
         <% end %>
       </tbody>
     </table>
   </div>
-
+  <div class="rider_accepted">
+    <div class="table_title"><h4>Accept Riders</h4></div>
+    <table class="table">
+      <thead>
+        <th class='name'>Rider Name</th>
+        <th class='name'>Accept</th>
+      </thead>
+      <tbody class="riders_tbody">
+        <% @unaccepted_riders.each do |rider| %>
+          <%= render 'accept_rider_row', :rider => rider %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

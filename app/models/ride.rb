@@ -7,9 +7,10 @@ class Ride < ActiveRecord::Base
   def price_per_rider
     riders = UserRide.where(ride_id: self.id, rider_approval: true, driver_approval: true).count
     if riders == 0
-      0
+      price = 0
     else
       price = (self.total_cost / riders).round(2)
     end
+    price
   end
 end

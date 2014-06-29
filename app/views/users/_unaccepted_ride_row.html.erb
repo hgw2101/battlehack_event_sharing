@@ -1,7 +1,7 @@
 <tr>
   <td onmouseover="this.style.cursor='pointer';"
 onclick="location.href='<%= ride_path(user_ride.ride_id) %>';"
-style="cursor: pointer;" class='name'><p><%= Ride.where(id: user_ride.ride_id).first.name %></p></th>
+style="cursor: pointer;" class='name'><p><%= Ride.where(id: user_ride.ride_id).first.name %></p></td>
   <td class='time'>
     <p>
       <%= form_tag "user_rides/#{user_ride.id}/rider_approve", method: 'post', class: 'rider-approve', remote: true do %>

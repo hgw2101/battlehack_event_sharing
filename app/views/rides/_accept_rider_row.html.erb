@@ -1,0 +1,14 @@
+<tr>
+  <td onmouseover="this.style.cursor='pointer';"
+      onclick="location.href='<%= ride_path(rider) %>';"
+      style="cursor: pointer;" class='name'>
+    <p><%= rider.name %></p>
+  </td>
+  <td class='time'>
+    <p>
+      <%= form_tag "user_rides/#{UserRide.where(ride_id: @ride.id,user_id: rider.id).first.id}/driver_approve", method: 'post', class: 'driver-approve', remote: true do %>
+        <%= submit_tag "I'll Go", class: 'driver-approve-submit btn btn-default' %>
+      <% end %>
+    </p>
+  </td>
+</tr>

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   match '/login', to:'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
   post '/users/user_rides/:id/rider_approve', to: 'user_rides#rider_approve', as: 'rider_approve'
+  post '/rides/user_rides/:id/driver_approve', to: 'user_rides#driver_approve', as: 'driver_approve'
 
 end
