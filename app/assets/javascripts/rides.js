@@ -50,6 +50,11 @@ $(document).ready(function() {
     calcRoute('start_location', 'end_location');
   });
 
+  $('#invite-riders').on('click', function(e) {
+    e.preventDefault();
+
+  });
+
 });
 
 $(document).on('page:load', function() {
