@@ -21,6 +21,7 @@ class UserRidesController < ApplicationController
     @ride = Ride.find(params[:ride_id])
     @ride.riders << current_user
     redirect_to ride_path(@ride.id)
+  end
 
   def payment
     @user_ride = UserRide.find(params[:id])
