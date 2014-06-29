@@ -22,16 +22,18 @@ class RidesController < ApplicationController
     @ride.start_time = params[:ride][:start_time]
     @ride.end_time = params[:ride][:end_time]
     @ride.driver = current_user
+    @ride.total_cost = params[:ride][:total_cost]
 
     if @ride.save
+      @ride.riders << current_user
       @location_record = LocationRecord.create(
         location: params[:start_location],
-        type: 'Start',
+        description: 'Start',
         locatable: @ride
          )
       @location_record = LocationRecord.create(
         location: params[:end_location],
-        type: 'End',
+        description: 'End',
         locatable: @ride
          )
       redirect_to user_path(current_user)
