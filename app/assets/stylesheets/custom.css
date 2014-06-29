@@ -128,7 +128,7 @@ tbody tr:hover {
   width: 25%;
 }
 
-.time {
+.time, .accepted-status {
   width: 20%;
 }
 
@@ -136,7 +136,7 @@ tbody tr:hover {
   width: 10%;
 }
 
-.time p, .name p, .price p {
+.time p, .name p, .price p, .accepted-status p {
   margin: 0;
 }
 
