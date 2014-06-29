@@ -30,60 +30,80 @@
 .available {
   float: left;
   border: 1px solid lightgray;
-  width: 69%;
+  width: 70%;
   margin: 0;
+  padding: 0;
   height: 700px;
 }
 
 .provided {
   float:right;
   border: 1px solid lightgray;
-  width: 30%;
+  width: 29.5%;
   height: 350px;
 }
 
 .booked {
   float:right;
   border: 1px solid lightgray;
-  width: 30%;
+  width: 29.5%;
   height: 350px;
 }
 
+.table_title {
+  height: 30px;
+  background: #F8F8F8;
+  text-align: center;
+  color: white;
+}
+
+.table_title h4 {
+  padding: 0;
+  margin: 0;
+  height: inherit;
+  color: #3476be;
+}
+
 table {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
 thead {
-    text-align:left;
-    display: table;
-    float: left;
-    width: 100%;
-    background: #3476be;
-    color: #ffffff;
+  text-align:left;
+  display: table;
+  float: left;
+  width: 100%;
+  color: #3476be;
 }
 thead tr {
-    display: table-row;
-    width: 100%;
+  display: table-row;
+  width: 100%;
+  background: #F8F8F8;
 }
 tbody {
-    display: block;
-    overflow: auto;
-    float: left;
-    width: 100%;
+  display: block;
+  overflow: auto;
+  float: left;
+  width: 100%;
 }
 tbody tr {
-    display: table;
-    width: 100%;
+  display: table;
+  width: 100%;
 }
 tbody tr {
-    height: 18px;
+  height: 18px;
 }
 tbody td {
-    padding:1px 8px;
+  padding:1px 8px;
+  /*border-bottom: 1px solid #000000;*/
+}
+
+tbody tr:hover {
+  background: lightgray;
 }
 
 .available_tbody {
-  height: 660px;
+  height: 620px;
 }
 
 .rides_tbody {
