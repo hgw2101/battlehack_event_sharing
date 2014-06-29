@@ -4,6 +4,19 @@
   <%= content_tag :div, "", id: "end_coords", data: {info: "#{@end.lat},#{@end.lon}"} %>
   <div id="ride_info">
     <div id="ride_details">
+      <div class="paynow">
+        <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=<%= @ride.driver.email %>"
+          data-button="paynow"
+          data-name=<%= @ride.name %>
+          data-quantity="1"
+          data-amount=<%= @ride.price_per_rider.to_s %>
+          data-currency="USD"
+          data-shipping="0"
+          data-tax="0"
+          data-callback="callbackurl"
+          data-env="sandbox"
+        ></script>
+      </div>
       <h2>Destination: <%= @ride.name %></h2>
       <% if current_user == @ride.driver %>
         <%= button_to 'Invite Riders', @ride, method: 'delete', class: 'btn btn-primary navbar-btn btn-lg right-align' %>
