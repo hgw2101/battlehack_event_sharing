@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @available_rides = []
     rides = Ride.all
     rides.each do |ride|
-      if @user.friends.include?(ride.driver) && ride.start_time > Time.now
+      if @user.friends.include?(ride.driver) && ride.start_time > Time.now && ride.driver != @user
         @available_rides << ride
       end
     end

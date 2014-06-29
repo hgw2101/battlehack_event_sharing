@@ -6,7 +6,7 @@
     <div id="ride_details">
       <h2>Destination: <%= @ride.name %></h2>
       <% if current_user == @ride.driver %>
-        <%= button_to 'Invite Riders', @ride, method: 'delete', class: 'btn btn-primary navbar-btn btn-lg right-align' %>
+        <div class='btn btn-primary navbar-btn btn-lg right-align'><%= link_to 'Invite Riders', invite_riders_path %></div>
         <%= button_to 'Delete Trip', @ride, method: 'delete', class: 'btn btn-danger navbar-btn btn-lg right-align' %>
       <% else %>
         <% if @ride.riders.include?(current_user) %>
