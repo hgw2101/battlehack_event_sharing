@@ -165,3 +165,7 @@ tbody tr:hover {
   text-decoration: none;
   color: white;
 }
+
+.paynow {
+  float: right;
+}

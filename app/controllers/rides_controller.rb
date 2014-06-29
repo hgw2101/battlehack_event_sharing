@@ -4,6 +4,8 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.find(params[:id])
+    user = current_user
+    @user_ride = UserRide.where(user_id: user.id, ride_id: @ride.id).first
     @start = @ride.location_records.where(description: "Start").first.location
     @end = @ride.location_records.where(description: "End").first.location
     @unaccepted_riders = []
