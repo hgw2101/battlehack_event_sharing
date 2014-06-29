@@ -41,6 +41,13 @@ function calcRoute(startAddress, endAddress) {
 
 function riderApprove() {
   $('body').on('ajax:success', '.rider-approve', function(e, data, status, xhr) {
+    console.log(status)
+    $(this).replaceWith('<p>Accepted</p>');
+  });
+}
+
+function driverApprove() {
+  $('body').on('ajax:success', '.driver-approve', function(e, data, status, xhr) {
     $(this).replaceWith('<p>Accepted</p>');
   });
 }
@@ -63,7 +70,7 @@ $(document).ready(function() {
   });
 
   riderApprove();
-
+  driverApprove();
 });
 
 
