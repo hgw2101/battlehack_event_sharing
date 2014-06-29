@@ -9,15 +9,18 @@ function initializeMap() {
     zoom:7,
     center: chicago
   }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  directionsShow.setMap(map);
+  if (document.getElementById('map-canvas')) {
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    directionsShow.setMap(map);
+  }
+
 }
 
 function calcPath() {
   // var start = document.getElementById('start').value;
   // var end = document.getElementById('end').value;
-  var start = '41.8822784,-87.6294101'
-  var end = '42.1168454,-85.6345205'
+  var start = $('#start_coords').data('info');
+  var end = $('#end_coords').data('info');
   var request = {
       origin:start,
       destination:end,
@@ -33,12 +36,14 @@ function calcPath() {
 // google.maps.event.addDomListener(window, 'load', initializeMap);
 
 $(document).ready(function() {
+  console.log("FUUUCK")
   initializeMap();
   calcPath();
 });
 
 
 $(document).on('page:load', function() {
+  console.log("FUUUCK")
   initializeMap();
   calcPath();
 });
