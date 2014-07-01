@@ -55,6 +55,7 @@ function driverApprove() {
 $(document).ready(function() {
   $('#start_location').on('focusout', function(e) {
     e.preventDefault();
+    console.log("focusout")
     codeAddress('start_location', '#location_start');
   });
 
@@ -77,6 +78,7 @@ $(document).ready(function() {
 $(document).on('page:load', function() {
   $('#start_location').on('focusout', function(e) {
     e.preventDefault();
+    console.log("focusout")
     codeAddress('start_location', '#location_start');
   });
 
@@ -92,4 +94,5 @@ $(document).on('page:load', function() {
   });
 
   riderApprove();
+  driverApprove();
 });
